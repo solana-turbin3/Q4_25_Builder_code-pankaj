@@ -13,7 +13,7 @@ const commitment: Commitment = "confirmed";
 const connection = new Connection("https://api.devnet.solana.com", commitment);
 
 const token_decimals = 1_000_000n;
-const amount = 100n * token_decimals
+const amount = 1000n * token_decimals
 
 // Mint address
 const mint = new PublicKey("EjFfzGTocyLbiGrAX5K1umdr5RVyvKjrc2rjYUykj8i4");
