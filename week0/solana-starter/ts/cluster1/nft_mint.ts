@@ -16,11 +16,22 @@ umi.use(mplTokenMetadata())
 const mint = generateSigner(umi);
 
 (async () => {
-    // let tx = ???
-    // let result = await tx.sendAndConfirm(umi);
-    // const signature = base58.encode(result.signature);
+    let tx = createNft(umi, {
+        mint,
+        name: "AceRUG",
+        symbol: "ACE",
+        uri: "https://gateway.irys.xyz/4JqrptF9FXMwGoPvE8KWWMvpHeqwhNrz9nsHoKmEjSJF",
+        sellerFeeBasisPoints: percentAmount(5)
+    })
+    let result = await tx.sendAndConfirm(umi);
+    const signature = base58.encode(result.signature);
     
-    // console.log(`Succesfully Minted! Check out your TX here:\nhttps://explorer.solana.com/tx/${signature}?cluster=devnet`)
+    console.log(`Succesfully Minted! Check out your TX here:\nhttps://explorer.solana.com/tx/${signature}?cluster=devnet`)
 
     console.log("Mint Address: ", mint.publicKey);
 })();
+
+
+// Succesfully Minted! Check out your TX here:
+// https://explorer.solana.com/tx/bUeuwHSYFGuvPH9rt5BxkE7VuyFh1ov9idbrh1tbewFmdakNhkkNHWWtzDrxPtdUn3YVgmdDv2dqMSEEpKZogyd?cluster=devnet
+// Mint Address:  8DUa1nEhaNyzk8ivxPYQwE8qtoufbits8wt4EcWQJpEL
