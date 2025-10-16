@@ -6,7 +6,7 @@ pub mod state;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("5UFZzEt5vU9fxtUAgsD11z63ApZEHJ5bH7Z4QpFwZ2CQ");
+declare_id!("7kJZf74odXcFPoSjyCWieRzasf5S4HPLBXowepNowg19");
 
 #[program]
 pub mod anchor_escrow_q4_25 {
@@ -20,8 +20,8 @@ pub mod anchor_escrow_q4_25 {
         ctx.accounts.refund_and_close_vault()
     }
 
-    // pub fn take(ctx: Context<Take>) -> Result<()> {
-    //     ctx.accounts.deposit()?;
-    //     ctx.accounts.withdraw_and_close_vault()
-    // }
+     pub fn take(ctx: Context<Take>) -> Result<()> {
+        ctx.accounts.deposit()?;
+        ctx.accounts.withdraw_and_close_vault()
+     }
 }
